@@ -3,805 +3,856 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dojo Growth - Partner buat Bisnis Kamu</title>
-    <meta name="description" content="Dojo Growth adalah penyedia layanan digitalisasi yang dapat membantu pelaku usaha untuk kebutuhan pembuatan apps, website, system informasi, dan management social media.">
+    <title>Trixy Event Design - Wujudkan Momen Impian Anda</title>
+    <meta name="description" content="Trixy Event Design menyediakan layanan dekorasi premium untuk lamaran, ulang tahun, aqiqah, grand opening, dan berbagai acara spesial lainnya di Indonesia.">
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- Favicon: Pastikan file 'Untitled design.png' ada di folder yang sama -->
-    <link rel="icon" href="Dojo Growth.png" type="image/png">
-   <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #d1d5db; /* Light gray text */
-            background-color: #000000; /* Black background to match logo */
+    <link rel="icon" href="Untitled design.png" type="image/png">
+
+    <style>
+        /* CSS Styles: Semua style ada di sini */
+        :root {
+            --primary-color: #9B2B6E;
+            --secondary-color: #D7B3D5;
+            --accent-gold: #FFD700;
+            --dark-color: #333333;
+            --light-color: #FFFFFF;
+            --bg-light: #F9F4F8;
+            --font-primary: 'Poppins', sans-serif;
+            --font-headings: 'Playfair Display', serif;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
-        .text-primary-red {
-            color: #d4222f; /* Deep red from logo */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .bg-primary-red {
-            background-color: #d4222f;
-        }
-        .border-primary-red {
-            border-color: #d4222f;
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #d4222f, #d1d5db);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, #1a1a1a, #000000);
-        }
-        .card-bg {
-            background-color: #1a1a1a;
-        }
-        .card-shadow {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-        }
-        .whatsapp-button {
-            transition: all 0.3s ease;
-        }
-        .whatsapp-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(212, 34, 47, 0.4);
-        }
-        .whatsapp-icon {
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-        }
-        .scroll-smooth {
+
+        html {
             scroll-behavior: smooth;
         }
-        .hero-bg {
-            background: radial-gradient(circle at top left, #1a1a1a 0%, transparent 50%), radial-gradient(circle at bottom right, #1a1a1a 0%, transparent 50%), #000000;
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--dark-color);
+            line-height: 1.7;
+            background-color: var(--light-color);
         }
-        .card-hover:hover {
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- Reusable Components --- */
+        .section-title {
+            font-family: var(--font-headings);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), #c74b91);
+            color: var(--light-color);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(155, 43, 110, 0.4);
+        }
+
+        .cta-button:hover {
             transform: translateY(-5px);
-            border-color: #d4222f;
+            box-shadow: 0 8px 25px rgba(155, 43, 110, 0.5);
+        }
+
+        .cta-button i {
+            margin-left: 0.5rem;
+        }
+
+        /* --- Header & Navigation --- */
+        #header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        #header.scrolled {
+            box-shadow: var(--shadow);
+            background-color: var(--light-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 5rem;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3.5rem; /* Jarak antar menu */
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--dark-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-color);
+            background-image: url('https://images.unsplash.com/photo-1522158637959-30385a09e0da?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: var(--font-headings);
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        /* --- Sections General --- */
+        section {
+            padding: 6rem 0;
+        }
+        #about, #how-to-order, #testimonials {
+             padding-top: 6rem;
+             padding-bottom: 6rem;
+        }
+
+        #services, #gallery, #how-to-order {
+            background-color: var(--bg-light);
+        }
+
+        /* --- Services Section --- */
+        .service-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .tab-button {
+            background: var(--light-color);
+            border: 1px solid var(--secondary-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark-color);
+            transition: all 0.3s ease;
+        }
+
+        .tab-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active {
+            background: var(--primary-color);
+            color: var(--light-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(155, 43, 110, 0.3);
+        }
+
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .package {
+            background: var(--light-color);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .package.gold { border-top-color: var(--accent-gold); }
+        .package.platinum { border-top-color: var(--primary-color); }
+
+        .package h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .package .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .package ul {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .package ul li {
+            margin-bottom: 0.8rem;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .package ul li::before {
+            content: '\f00c'; /* Font Awesome check icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .package .order-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        /* --- Gallery Section --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            opacity: 0.8;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+        }
+
+        .client {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .client-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .client-name {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .client-event {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* --- How to Order Section --- */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover .step-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark-color);
+            color: #eee;
+            padding: 6rem 0 2rem 0;
+            text-align: center;
+        }
+
+        footer .section-title {
+            color: var(--light-color);
+        }
+
+        footer .section-subtitle {
+            color: #ccc;
+        }
+
+        footer .cta-button {
+            margin-bottom: 4rem;
+        }
+
+        footer .cta-button i {
+            margin-right: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .footer-bottom .fa-heart {
+            color: var(--primary-color);
+        }
+
+        /* --- Back to Top Button --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 5rem;
+                flex-direction: column;
+                background-color: var(--light-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                padding: 1.5rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
         }
     </style>
 </head>
-<body class="scroll-smooth">
+<body>
 
     <!-- Header & Navigation -->
-    <header class="sticky top-0 z-50 bg-black bg-opacity-90 backdrop-blur-md shadow-lg">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="flex items-center space-x-2">
-                <img src="http://googleusercontent.com/file_content/1" onerror="this.onerror=null;this.src='https://placehold.co/150x50/000/fff?text=DojoGrowth'" alt="Dojo Growth Logo" class="h-10">
+    <header id="header">
+        <nav class="container">
+            <a href="#" class="logo">
+                <img src="Untitled design.png" alt="Trixy Event Design Logo">
             </a>
-            <div class="hidden md:flex space-x-8 text-sm font-semibold">
-                <a href="#services" class="hover:text-primary-red transition-colors">Layanan</a>
-                <a href="#testimonials" class="hover:text-primary-red transition-colors">Testimoni</a>
-                <a href="#about" class="hover:text-primary-red transition-colors">Tentang Kami</a>
-                <a href="#contact" class="hover:text-primary-red transition-colors">Kontak</a>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Layanan</a></li>
+                <li><a href="#gallery" class="nav-link">Galeri</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimoni</a></li>
+                <li><a href="#contact" class="nav-link">Kontak</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-            <a href="#contact" class="hidden md:inline-flex items-center px-4 py-2 border border-primary-red rounded-full text-white bg-transparent hover:bg-primary-red transition-all duration-300 shadow-md">
-                Hubungi Kami
-            </a>
-            <button id="mobile-menu-toggle" class="md:hidden text-gray-300 hover:text-primary-red focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
         </nav>
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black px-6 py-4">
-            <div class="flex flex-col space-y-4 text-sm">
-                <a href="#services" class="hover:text-primary-red transition-colors">Layanan</a>
-                <a href="#testimonials" class="hover:text-primary-red transition-colors">Testimoni</a>
-                <a href="#about" class="hover:text-primary-red transition-colors">Tentang Kami</a>
-                <a href="#contact" class="hover:text-primary-red transition-colors">Kontak</a>
-            </div>
-        </div>
     </header>
-    
-    <!-- Hero Section -->
-    <section id="home" class="hero-bg py-24 md:py-32 text-center text-white relative">
-        <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter mb-4">
-                Yuk, Tumbuhin <span class="gradient-text">Bisnis Kamu</span> Bareng Kita!
-            </h1>
-            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-400">
-                Dojo Growth siap jadi partner terpercaya kamu buat semua kebutuhan digital. Dari bikin website keren sampai ngelola media sosial, kita bantu bisnis kecil di Indonesia makin maju.
-            </p>
-            <a href="https://wa.me/6281234567890?text=Halo%20Dojo%20Growth%2C%20saya%20tertarik%20dengan%20layanan%20Anda!" target="_blank" class="whatsapp-button inline-flex items-center px-8 py-4 text-lg font-bold rounded-full bg-primary-red text-white transition-all duration-300 transform hover:scale-105 shadow-lg">
-                <img src="http://googleusercontent.com/file_content/4" alt="WhatsApp Icon" class="h-6 w-6 mr-3 whatsapp-icon">
-                Hubungi Kami via WhatsApp
-            </a>
-        </div>
-    </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 md:py-28 gradient-bg">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">Layanan Kami yang Bikin Kamu Makin Jago</h2>
-            <p class="text-center text-lg max-w-3xl mx-auto mb-16 text-gray-400">
-                Kami punya banyak layanan keren buat bantu bisnismu. Dari bikin konten sampai naikin penjualan, semua ada di sini!
-            </p>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content container">
+                <h1 class="hero-title">Mewujudkan Momen Impian Anda.</h1>
+                <p class="hero-subtitle">Kreativitas, Detail, dan Sentuhan Personal untuk Setiap Acara Spesial.</p>
+                <a href="#services" class="cta-button">Lihat Layanan Kami <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
 
-            <!-- Service Card: Social Media Management -->
-            <div class="card-bg rounded-2xl p-8 mb-10 card-shadow transition-all duration-300 card-hover border border-transparent">
-                <div class="flex items-center mb-6">
-                    <div class="bg-primary-red p-3 rounded-full mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-white">Manajemen Media Sosial</h3>
+        <!-- About Us Section -->
+        <section id="about" class="container">
+             <h2 class="section-title">Tentang Trixy Event Design</h2>
+             <p class="section-subtitle">Kami adalah partner kreatif Anda dalam merancang dan mendekorasi setiap momen berharga. Dari konsep hingga eksekusi, Trixy Event Design berdedikasi untuk memberikan hasil yang melebihi ekspektasi dengan detail yang sempurna dan pelayanan yang ramah.</p>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">Layanan Kami</h2>
+                <div class="service-tabs">
+                    <!-- Tabs akan di-generate oleh JavaScript -->
                 </div>
-                <p class="text-gray-400 mb-8">Nggak cuma posting biasa, kami bantu kamu bikin konten yang menarik dan ngatur media sosial biar brand kamu makin dikenal banyak orang.</p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Basic Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Basic</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Cocok buat kamu yang baru mulai.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 500 Ribu - 1 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Rencana Konten Bulanan</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>15 Postingan/Bulan</span>
-                            </li>
-                            <li class="flex items-start text-gray-500">
-                                <svg class="h-4 w-4 text-gray-600 mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                <span>Analisis Mingguan</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Basic%20Manajemen%20Media%20Sosial!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Buat yang mau lebih serius.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 1 Juta - 5 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Semua di Paket Basic</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>30 Postingan/Bulan</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Analisis Mingguan & Report Bulanan</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Hero%20Manajemen%20Media%20Sosial!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Super Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Super Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Pengen viral? Ini paketnya!</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 5 Juta - 10 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Semua di Paket Hero</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Konten Tanpa Batas</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Strategi Digital Komprehensif</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Pemasaran Influencer Mikro</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Super%20Hero%20Manajemen%20Media%20Sosial!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
+                <div class="service-content">
+                    <!-- Detail Paket akan ditampilkan di sini -->
                 </div>
             </div>
-            
-            <!-- Service Card: Professional Website -->
-            <div class="card-bg rounded-2xl p-8 mb-10 card-shadow transition-all duration-300 card-hover border border-transparent">
-                <div class="flex items-center mb-6">
-                    <div class="bg-primary-red p-3 rounded-full mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-white"><path d="M10 12l-6-6m0 6l6 6m1-12h12a2 2 0 012 2v8a2 2 0 01-2 2H11a2 2 0 01-2-2V7a2 2 0 012-2z"></path></svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-white">Bikin Website Profesional</h3>
-                </div>
-                <p class="text-gray-400 mb-8">Punya website yang keren itu wajib. Kami bantu kamu bikin website yang tampilannya ciamik, gampang dipakai, dan pastinya bikin brand kamu makin profesional.</p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Basic Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Basic</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Buat yang butuh website simpel tapi modern.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 500 Ribu - 1 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Website 1 Halaman</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Desain Responsif (Mobile Friendly)</span>
-                            </li>
-                            <li class="flex items-start text-gray-500">
-                                <svg class="h-4 w-4 text-gray-600 mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                <span>Integrasi Chatbot & Formulir Kontak</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Basic%20Pembuatan%20Website!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Website multi-halaman yang profesional.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 1 Juta - 5 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Website hingga 5 Halaman</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Optimasi SEO Dasar</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Hosting & Domain Gratis (1 Tahun)</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Hero%20Pembuatan%20Website!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Super Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Super Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Website full-power buat bisnis besar!</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 5 Juta - 10 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Website E-commerce Kustom</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Integrasi Payment Gateway</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Sistem Manajemen Konten (CMS)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Dukungan Teknis Prioritas</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Super%20Hero%20Pembuatan%20Website!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                </div>
-            </div>
+        </section>
 
-            <!-- Service Card: Mobile & Web Apps -->
-            <div class="card-bg rounded-2xl p-8 mb-10 card-shadow transition-all duration-300 card-hover border border-transparent">
-                <div class="flex items-center mb-6">
-                    <div class="bg-primary-red p-3 rounded-full mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-white"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12" y2="18"></line><circle cx="12" cy="12" r="4"></circle></svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-white">Aplikasi Mobile & Web</h3>
-                </div>
-                <p class="text-gray-400 mb-8">Bikin aplikasi yang sesuai banget sama kebutuhan bisnismu. Kami bantu bikin aplikasi yang gampang dipakai di HP atau komputer mana pun.</p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Basic Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Basic</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Aplikasi fungsional sederhana.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 500 Ribu - 1 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Aplikasi Web 1 Fitur</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>UI/UX Sederhana</span>
-                            </li>
-                            <li class="flex items-start text-gray-500">
-                                <svg class="h-4 w-4 text-gray-600 mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                <span>Pengujian Dasar</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Basic%20Aplikasi%20Mobile%20&%20Web!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Aplikasi dengan beberapa fitur utama.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 1 Juta - 5 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Semua di Paket Basic</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Pengembangan Aplikasi Mobile (iOS/Android)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Database & API Dasar</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Hero%20Aplikasi%20Mobile%20&%20Web!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Super Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Super Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Solusi aplikasi terpadu yang lengkap!</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 5 Juta - 10 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Semua di Paket Hero</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Pengembangan Aplikasi iOS & Android Native</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Integrasi Fitur Kompleks (API Pihak Ketiga)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Maintenance & Dukungan Lanjutan</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Super%20Hero%20Aplikasi%20Mobile%20&%20Web!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <div class="container">
+                <h2 class="section-title">Galeri Portofolio</h2>
+                <p class="section-subtitle">Inspirasi visual dari acara-acara yang telah kami tangani.</p>
+                <div class="gallery-grid">
+                    <!-- Ganti 'src' dengan path foto portofolio Anda -->
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?q=80&w=2080&auto=format&fit=crop" alt="Dekorasi Lamaran"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513152195795-58f53713aa83?q=80&w=2070&auto=format&fit=crop" alt="Dekorasi Ulang Tahun"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1599057108486-55de066e3c45?q=80&w=1974&auto=format&fit=crop" alt="Photo Booth"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop" alt="Grand Opening"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format&fit=crop" alt="Table Decoration"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1624555130581-3201213f0556?q=80&w=2070&auto=format&fit=crop" alt="Dekorasi Aqiqah"></div>
                 </div>
             </div>
-
-            <!-- Service Card: System Information Web Based -->
-            <div class="card-bg rounded-2xl p-8 mb-10 card-shadow transition-all duration-300 card-hover border border-transparent">
-                <div class="flex items-center mb-6">
-                    <div class="bg-primary-red p-3 rounded-full mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-white"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-white">Sistem Informasi Berbasis Web</h3>
-                </div>
-                <p class="text-gray-400 mb-8">Nggak mau lagi ribet ngurus data dan operasional? Kami bisa bikinin sistem informasi khusus buat bisnismu biar semua lebih rapi dan gampang dikontrol.</p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Basic Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Basic</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Sistem manajemen data sederhana.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 500 Ribu - 1 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Manajemen Data Dasar</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Laporan Sederhana</span>
-                            </li>
-                            <li class="flex items-start text-gray-500">
-                                <svg class="h-4 w-4 text-gray-600 mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                <span>Integrasi Kustom</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Basic%20Sistem%20Informasi%20Berbasis%20Web!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Solusi untuk manajemen operasional.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 1 Juta - 5 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Semua di Paket Basic</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Manajemen Stok & Inventaris</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Integrasi Dasar ke Sistem Lain</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Hero%20Sistem%20Informasi%20Berbasis%20Web!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Super Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Super Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Sistem custom yang terintegrasi penuh.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 5 Juta - 10 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Semua di Paket Hero</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Pengembangan Modul Kustom (misal: HRD, Keuangan)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Integrasi Multi-platform & API</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Dukungan Teknis Penuh</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Super%20Hero%20Sistem%20Informasi%20Berbasis%20Web!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service Card: Professional Ads -->
-            <div class="card-bg rounded-2xl p-8 mb-10 card-shadow transition-all duration-300 card-hover border border-transparent">
-                <div class="flex items-center mb-6">
-                    <div class="bg-primary-red p-3 rounded-full mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-white"><path d="M11 5.37V21a1 1 0 001 1h1a1 1 0 001-1V5.37a2 2 0 00-3.92-.81L8 3.5m0-1.92L3 21a1 1 0 001 1h16a1 1 0 001-1L16 1.62a2 2 0 00-3.92-.81L11 2.37z"></path></svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-white">Iklan Profesional</h3>
-                </div>
-                <p class="text-gray-400 mb-8">Mau produk kamu dilihat banyak orang? Kami bisa bantu bikin kampanye iklan yang terarah, biar kamu dapat banyak pelanggan baru!</p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Basic Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Basic</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Pemasaran digital awal.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 500 Ribu - 1 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Pemasangan Iklan Dasar</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Targeting Audiens Sederhana</span>
-                            </li>
-                            <li class="flex items-start text-gray-500">
-                                <svg class="h-4 w-4 text-gray-600 mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                <span>Laporan Mingguan</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Basic%20Iklan%20Profesional!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Strategi iklan yang lebih terperinci.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 1 Juta - 5 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Semua di Paket Basic</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Strategi Kampanye Iklan Lanjutan</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>A/B Testing Iklan</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Hero%20Iklan%20Profesional!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Super Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Super Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Full-service iklan dari awal sampai akhir.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 5 Juta - 10 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Semua di Paket Hero</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Manajemen Iklan Multi-platform (Google Ads, Meta Ads)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Pembuatan Materi Iklan Profesional</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Laporan Kinerja Bulanan & Analisis</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Super%20Hero%20Iklan%20Profesional!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                </div>
-            </div>
+        </section>
         
-            <!-- Service Card: Marketplace Selling -->
-            <div class="card-bg rounded-2xl p-8 mb-10 card-shadow transition-all duration-300 card-hover border border-transparent">
-                <div class="flex items-center mb-6">
-                    <div class="bg-primary-red p-3 rounded-full mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-white"><path d="M16 11V5.5c0-.55-.45-1-1-1H9c-.55 0-1 .45-1 1V11M2 11h20M2 11c0 3.866 3.582 7 8 7s8-3.134 8-7H2zm10 10c-4.418 0-8-3.134-8-7h16c0 3.866-3.582 7-8 7z"></path></svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-white">Naikin Penjualan di Marketplace</h3>
-                </div>
-                <p class="text-gray-400 mb-8">Jualan di marketplace tapi sepi? Kami punya trik dan strategi jitu biar produk kamu makin kelihatan dan penjualan jadi naik pesat di marketplace favorit di Indonesia!</p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Basic Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Basic</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Optimasi toko sederhana.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 500 Ribu - 1 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Analisis Produk & Kompetitor</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Optimasi Judul & Deskripsi Produk</span>
-                            </li>
-                            <li class="flex items-start text-gray-500">
-                                <svg class="h-4 w-4 text-gray-600 mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                <span>Manajemen Promo & Diskon</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Basic%20Pemasaran%20di%20Marketplace!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Strategi lengkap untuk naik level.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 1 Juta - 5 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Semua di Paket Basic</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Analisis Pasar & Tren</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Manajemen Iklan Berbayar Marketplace</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Hero%20Pemasaran%20di%20Marketplace!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Super Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Super Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Solusi total buat jadi top seller.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 5 Juta - 10 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Semua di Paket Hero</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Manajemen Toko End-to-End</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Laporan Kinerja & Rekomendasi Bulanan</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Strategi Pemasaran Influencer Mikro</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Super%20Hero%20Pemasaran%20di%20Marketplace!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service Card: Micro Influencer Provider -->
-            <div class="card-bg rounded-2xl p-8 mb-10 card-shadow transition-all duration-300 card-hover border border-transparent">
-                <div class="flex items-center mb-6">
-                    <div class="bg-primary-red p-3 rounded-full mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-white"><path d="M16 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle><path d="M18.5 22.5L20 21.5l1.5 1.5"></path><path d="M21 17.5l-1.5-1.5-1.5 1.5"></path><path d="M19 14v4l-2 1.5M19 14v4l2 1.5"></path></svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-white">Penyedia Mikro-Influencer</h3>
-                </div>
-                <p class="text-gray-400 mb-8">Punya produk bagus tapi bingung cara promosiinnya? Kami hubungkan kamu dengan mikro-influencer yang pas, biar produkmu sampai ke target audiens yang tepat dan pesanmu jadi makin kuat.</p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Basic Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Basic</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Kerja sama dengan influencer pemula.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 500 Ribu - 1 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Pencarian 1 Mikro-Influencer</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Manajemen Kontak Dasar</span>
-                            </li>
-                            <li class="flex items-start text-gray-500">
-                                <svg class="h-4 w-4 text-gray-600 mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                <span>Analisis Hasil Sederhana</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Basic%20Penyedia%20Mikro-Influencer!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Paket kolaborasi dengan lebih banyak influencer.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 1 Juta - 5 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Semua di Paket Basic</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Pencarian hingga 5 Mikro-Influencer</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Manajemen Kampanye End-to-End</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Hero%20Penyedia%20Mikro-Influencer!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                    <!-- Super Hero Package -->
-                    <div class="bg-[#242424] p-6 rounded-xl flex flex-col items-center text-center">
-                        <h4 class="text-xl font-bold mb-2 gradient-text">Super Hero</h4>
-                        <p class="text-gray-400 mb-4 text-sm">Kerja sama jangka panjang untuk brand ambassador.</p>
-                        <p class="text-2xl font-extrabold text-white mb-4">Rp 5 Juta - 10 Juta</p>
-                        <ul class="text-sm text-gray-300 space-y-2 text-left w-full mb-6">
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Semua di Paket Hero</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Kolaborasi Jangka Panjang</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Pemantauan & Analisis Kinerja Mendalam</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-4 w-4 text-green-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                                <span>Brand Ambassador Management</span>
-                            </li>
-                        </ul>
-                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20paket%20Super%20Hero%20Penyedia%20Mikro-Influencer!" target="_blank" class="whatsapp-button inline-flex items-center px-4 py-2 text-sm font-bold rounded-full bg-primary-red text-white">Pesan Sekarang</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 md:py-28">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">Apa Kata Mereka tentang Kami?</h2>
-            <p class="text-center text-lg max-w-3xl mx-auto mb-16 text-gray-400">
-                Kepuasan pelanggan adalah prioritas kami. Ini dia beberapa testimoni dari mereka yang sudah bekerja sama dengan Dojo Growth.
-            </p>
-            <div class="grid md:grid-cols-2 gap-10">
-
-                <!-- Testimonial Card 1 -->
-                <div class="card-bg rounded-2xl p-8 card-shadow transition-all duration-300 card-hover border border-transparent">
-                    <div class="flex items-center mb-6">
-                        <img src="https://placehold.co/60x60/d4222f/fff?text=TE" alt="Trixy Event Design Profile" class="rounded-full mr-4">
-                        <div>
-                            <h4 class="text-xl font-bold text-white">Trixy Event Design</h4>
-                            <div class="flex items-center mt-1">
-                                <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <div class="container">
+                <h2 class="section-title">Apa Kata Klien Kami?</h2>
+                <p class="section-subtitle">Kepuasan Anda adalah prioritas utama kami. Lihat cerita mereka yang telah mempercayakan momen spesialnya kepada Trixy Event Design.</p>
+                <div class="testimonial-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="quote">"Hasilnya jauh di atas ekspektasi! Dekorasi lamaran saya jadi super cantik dan elegan. Timnya juga ramah dan sangat membantu. Recommended banget!"</p>
+                        <div class="client">
+                            <img src="https://placehold.co/100x100/D7B3D5/333333?text=A" alt="Foto Klien" class="client-photo">
+                            <div class="client-info">
+                                <h4 class="client-name">Andini Putri</h4>
+                                <span class="client-event">Dekorasi Lamaran</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-300 leading-relaxed italic">
-                        "Desain website dari Dojo Growth benar-benar memuaskan! Timnya sangat responsif dan hasilnya melebihi ekspektasi kami. Website kami sekarang terlihat jauh lebih profesional dan elegan. Terima kasih banyak!"
-                    </p>
-                </div>
-
-                <!-- Testimonial Card 2 -->
-                <div class="card-bg rounded-2xl p-8 card-shadow transition-all duration-300 card-hover border border-transparent">
-                    <div class="flex items-center mb-6">
-                        <img src="https://placehold.co/60x60/d4222f/fff?text=YA" alt="Yayasan Cahaya Al-Ma'un Indonesia Profile" class="rounded-full mr-4">
-                        <div>
-                            <h4 class="text-xl font-bold text-white">Yayasan Cahaya Al-Ma'un Indonesia</h4>
-                            <div class="flex items-center mt-1">
-                                <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.381-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="quote">"Untuk grand opening toko, Trixy benar-benar memberikan yang terbaik. Dekorasi gate balonnya megah dan menarik perhatian banyak orang. Terima kasih Trixy!"</p>
+                        <div class="client">
+                            <img src="https://placehold.co/100x100/9B2B6E/FFFFFF?text=R" alt="Foto Klien" class="client-photo">
+                            <div class="client-info">
+                                <h4 class="client-name">Rizky Subagja</h4>
+                                <span class="client-event">Grand Opening</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-300 leading-relaxed italic">
-                        "Sistem informasi web yang dibuat Dojo Growth sangat membantu kami mengelola data yayasan. Prosesnya jadi lebih terstruktur dan efisien. Kami sangat puas dan pasti akan kembali untuk layanan manajemen media sosial!"
-                    </p>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="quote">"Pesta ulang tahun anak jadi meriah dan tematik banget. Photobooth-nya jadi rebutan semua tamu. Profesional dan hasilnya memuaskan."</p>
+                        <div class="client">
+                            <img src="https://placehold.co/100x100/D7B3D5/333333?text=S" alt="Foto Klien" class="client-photo">
+                            <div class="client-info">
+                                <h4 class="client-name">Sarah Larasati</h4>
+                                <span class="client-event">Dekorasi Ulang Tahun</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="py-20 md:py-28">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">Tentang Dojo Growth</h2>
-            <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                Di Dojo Growth, kami percaya banget kalau setiap bisnis, sekecil apa pun, punya potensi buat jadi besar. Tim kami siap bantu kamu dengan solusi digital yang profesional, berkualitas, dan pastinya nggak bikin kantong bolong. Kami bakal kerja bareng kamu, dengerin semua ide dan tujuanmu, terus bikin strategi yang pas banget biar bisnis kamu nggak cuma tumbuh, tapi bisa melesat jauh di dunia digital.
-            </p>
-            <p class="text-lg text-gray-300 leading-relaxed">
-                Misi kami itu simpel: jadi partner andalan buat semua pebisnis yang mau berkembang, berinovasi, dan terhubung lebih dekat dengan pelanggan mereka.
-            </p>
-        </div>
-    </section>
+        <!-- How to Order Section -->
+        <section id="how-to-order">
+            <div class="container">
+                <h2 class="section-title">Cara Pemesanan</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-comments"></i></div>
+                        <h3>1. Konsultasi</h3>
+                        <p>Hubungi kami via WhatsApp untuk mendiskusikan konsep dan kebutuhan acara Anda.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-box-open"></i></div>
+                        <h3>2. Pilih Paket</h3>
+                        <p>Pilih paket yang paling sesuai dengan anggaran dan keinginan Anda dari layanan kami.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-calendar-check"></i></div>
+                        <h3>3. Booking & Eksekusi</h3>
+                        <p>Konfirmasi pesanan Anda, dan biarkan tim kami yang mewujudkan semuanya dengan sempurna.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 md:py-28 gradient-bg text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Siap untuk Bertumbuh Bersama?</h2>
-            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-400">
-                Langsung aja chat kita buat ngobrolin gimana kami bisa bantu bisnis kamu sukses. Kami tunggu, ya!
-            </p>
-            <a href="https://wa.me/6281234567890?text=Halo%20Dojo%20Growth%2C%20saya%20tertarik%20dengan%20layanan%20Anda!" target="_blank" class="whatsapp-button inline-flex items-center px-8 py-4 text-lg font-bold rounded-full bg-primary-red text-white transition-all duration-300 transform hover:scale-105 shadow-lg">
-                <img src="http://googleusercontent.com/file_content/4" alt="WhatsApp Icon" class="h-6 w-6 mr-3 whatsapp-icon">
-                Hubungi Kami via WhatsApp
+    <!-- Contact & Footer -->
+    <footer id="contact">
+        <div class="container">
+            <h2 class="section-title">Siap Wujudkan Acara Impian Anda?</h2>
+            <p class="section-subtitle">Jangan ragu untuk menghubungi kami. Klik tombol di bawah untuk konsultasi gratis via WhatsApp!</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Trixy%20Event%20Design,%20saya%20tertarik%20untuk%20menggunakan%20jasa%20Anda." class="cta-button" target="_blank">
+                <i class="fab fa-whatsapp"></i> Hubungi Kami Sekarang
             </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-12 bg-black border-t border-gray-700">
-        <div class="container mx-auto px-6 text-center">
-            <div class="mb-4">
-                <a href="#home" class="flex items-center justify-center space-x-2">
-                    <img src="http://googleusercontent.com/file_content/1" onerror="this.onerror=null;this.src='https://placehold.co/150x50/000/fff?text=DojoGrowth'" alt="Dojo Growth Logo" class="h-12">
-                </a>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Trixy Event Design. Dibuat dengan <i class="fas fa-heart"></i>.</p>
             </div>
-            <p class="text-gray-400 text-sm mb-6">Partner Kamu untuk solusi digital profesional.</p>
-            <div class="flex justify-center space-x-6 text-gray-400">
-                <!-- Instagram Icon -->
-                <a href="https://www.instagram.com/dojogrowth/" target="_blank" class="hover:text-primary-red transition-colors">
-                    <img src="http://googleusercontent.com/file_content/3" alt="Instagram Icon" class="h-6 w-6">
-                </a>
-                <!-- TikTok Icon -->
-                <a href="https://www.tiktok.com/@dojo.growth" target="_blank" class="hover:text-primary-red transition-colors">
-                    <img src="http://googleusercontent.com/file_content/2" alt="TikTok Icon" class="h-6 w-6">
-                </a>
-            </div>
-            <p class="mt-6 text-gray-500 text-sm">© 2024 Dojo Growth. Hak Cipta Dilindungi.</p>
         </div>
     </footer>
+    
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+        // JavaScript: Semua script ada di sini
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Data untuk Semua Layanan & Paket ---
+            // GANTI NOMOR WHATSAPP ANDA DI SINI
+            const yourWhatsAppNumber = '6281234567890'; 
+
+            const servicesData = {
+                "Dekorasi Lamaran": {
+                    basic: { name: "Basic", price: "Rp 1.500.000", features: ["Backdrop standar 2x2m", "Hiasan bunga artificial", "Karpet", "2 Standing Flower", "Lighting sederhana"] },
+                    gold: { name: "Gold", price: "Rp 2.800.000", features: ["Backdrop custom 2.5x2.5m (tema & warna)", "Bunga artificial premium & fresh flower mix", "Welcome sign custom", "Karpet premium", "4 Standing Flower", "Lighting profesional", "Kursi Tiffany untuk pasangan"] },
+                    platinum: { name: "Platinum", price: "Rp 4.500.000", features: ["Desain 3D sebelum eksekusi", "Backdrop full custom 3x3m", "Full fresh flower / Bunga artificial import", "Welcome sign & galeri foto", "Full area flooring", "6+ Standing Flower & dekorasi jalan", "Lighting & special effects"] }
+                },
+                "Dekorasi Ultah": {
+                    basic: { name: "Basic", price: "Rp 1.200.000", features: ["Backdrop banner custom 2x1.5m", "Dekorasi balon (garland)", "Meja kue sederhana", "Props tema standar"] },
+                    gold: { name: "Gold", price: "Rp 2.500.000", features: ["Backdrop custom 3D 2x2m", "Dekorasi balon tematik & helium", "Meja kue & dessert table", "Welcome sign", "Props tema custom"] },
+                    platinum: { name: "Platinum", price: "Rp 5.000.000", features: ["Dekorasi seluruh area venue", "Backdrop 3D interaktif", "Instalasi balon artistik", "Sweet corner & dessert table lengkap", "Souvenir corner & display", "Lighting tematik", "Termasuk planning & koordinasi"] }
+                },
+                "Photo Booth": {
+                    basic: { name: "Basic", price: "Rp 900.000", features: ["Backdrop standar 2x2m", "Properti standar (topi, kacamata)", "Lighting standar", "Durasi 2 jam"] },
+                    gold: { name: "Gold", price: "Rp 1.800.000", features: ["Backdrop custom sesuai tema 2.5x2m", "Properti custom & unik", "Lighting studio", "Cetak foto instan (100 lembar)", "Durasi 3 jam"] },
+                    platinum: { name: "Platinum", price: "Rp 3.000.000", features: ["Backdrop 3D/interaktif", "Properti premium & personal", "Lighting profesional & efek", "Cetak foto instan unlimited", "Operator & asisten", "Frame foto custom", "Durasi 4 jam"] }
+                },
+                "Grand Opening": {
+                    basic: { name: "Basic", price: "Rp 2.000.000", features: ["Dekorasi pintu masuk (balon gate)", "1 Standing Flower", "Pita & gunting peresmian"] },
+                    gold: { name: "Gold", price: "Rp 4.000.000", features: ["Balon gate artistik", "Backdrop panggung kecil", "Welcome sign & area registrasi", "2 Standing Flower & karangan bunga", "Sound system standar"] },
+                    platinum: { name: "Platinum", price: "Rp 6.000.000+", features: ["Desain dekorasi seluruh fasad & interior", "Panggung custom & backdrop LED", "Photo booth tematik", "Karpet merah & gate mewah", "Lighting & sound system profesional", "Koordinasi acara"] }
+                },
+                "Aqiqah & Khitan": {
+                    basic: { name: "Basic", price: "Rp 1.300.000", features: ["Backdrop sederhana 2x2m", "Dekorasi ayunan/kursi anak", "Balon & hiasan nama"] },
+                    gold: { name: "Gold", price: "Rp 2.600.000", features: ["Backdrop custom & tematik", "Set dekorasi meja makan & dessert", "Welcome sign custom", "Properti islami/tradisional"] },
+                    platinum: { name: "Platinum", price: "Rp 4.200.000", features: ["Dekorasi tematik di beberapa spot", "Photo booth mini", "Hiasan bunga segar", "Gift corner / souvenir display", "Instalasi balon"] }
+                },
+                "Table Decoration": {
+                    basic: { name: "Basic", price: "Rp 900.000", features: ["Dekorasi untuk 1 meja utama (6-8 orang)", "Centerpiece bunga artificial", "Table runner & placemat standar"] },
+                    gold: { name: "Gold", price: "Rp 1.700.000", features: ["Dekorasi 1 meja utama & 2 meja tamu", "Centerpiece bunga mix (artificial & fresh)", "Peralatan makan & napkin custom"] },
+                    platinum: { name: "Platinum", price: "Rp 3.500.000", features: ["Dekorasi seluruh meja tamu (hingga 5 meja)", "Full fresh flower centerpiece", "Desain tema menyeluruh (kartu menu, nama, dll)"] }
+                },
+                "Dekorasi Gate": {
+                    basic: { name: "Basic", price: "Rp 1.000.000", features: ["Gate balon sederhana", "Ukuran standar", "Pilihan 2 warna"] },
+                    gold: { name: "Gold", price: "Rp 2.200.000", features: ["Gate balon artistik", "Bisa mix dengan kain & bunga artificial", "Ukuran custom", "Lighting sederhana"] },
+                    platinum: { name: "Platinum", price: "Rp 3.800.000", features: ["Gate custom (kayu/besi)", "Dekorasi full bunga segar/artificial premium", "Lighting profesional", "Properti tambahan (misal: inisial)"] }
+                },
+                "Event Planner": {
+                    basic: { name: "Basic", price: "Rp 2.500.000", features: ["Konsultasi konsep", "Rekomendasi vendor", "Pembuatan rundown acara", "Koordinasi hari H (1 orang)"] },
+                    gold: { name: "Gold", price: "Rp 4.500.000", features: ["Semua di Basic", "Manajemen budget", "Booking & negosiasi vendor", "Koordinasi hari H (tim 2-3 orang)"] },
+                    platinum: { name: "Platinum", price: "Rp 6.000.000+", features: ["Semua di Gold", "Desain konsep & tema dari awal", "Manajemen tamu & RSVP", "Penanganan semua aspek dari A-Z", "Tim lengkap di hari H"] }
+                },
+                "Dekorasi Perpisahan": {
+                    basic: { name: "Basic", price: "Rp 1.800.000", features: ["Backdrop panggung standar", "Hiasan balon sederhana", "Meja untuk plakat/kenang-kenangan"] },
+                    gold: { name: "Gold", price: "Rp 3.200.000", features: ["Backdrop panggung custom", "Photo booth sederhana", "Dekorasi area pintu masuk", "Lighting panggung"] },
+                    platinum: { name: "Platinum", price: "Rp 5.500.000", features: ["Dekorasi tematik seluruh venue", "Panggung & backdrop megah", "Photo booth interaktif", "Memory lane / galeri foto", "Lighting & sound system"] }
+                },
+                "Dekorasi Photoshoot": {
+                    basic: { name: "Basic", price: "Rp 1.000.000", features: ["1 set background simpel", "Properti dasar", "Lighting standar", "Untuk indoor"] },
+                    gold: { name: "Gold", price: "Rp 2.500.000", features: ["2 set background tematik", "Properti custom", "Lighting studio", "Bisa indoor/outdoor"] },
+                    platinum: { name: "Platinum", price: "Rp 4.000.000", features: ["Set dekorasi kompleks & artistik", "Properti premium & unik", "Asisten dekorator di lokasi", "Bisa membangun set dari nol"] }
+                }
+            };
+
+            // --- Elemen DOM ---
+            const tabsContainer = document.querySelector('.service-tabs');
+            const contentContainer = document.querySelector('.service-content');
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const header = document.getElementById('header');
+            const backToTopButton = document.querySelector('.back-to-top');
+
+            // --- Fungsi untuk Render Konten Paket ---
+            function renderContent(serviceName) {
+                const serviceData = servicesData[serviceName];
+                if (!serviceData) return;
+
+                let contentHTML = '<div class="pricing-table">';
+                ['basic', 'gold', 'platinum'].forEach(tier => {
+                    const packageData = serviceData[tier];
+                    const whatsappMessage = `Halo Trixy Event Design, saya tertarik dengan paket ${packageData.name} untuk layanan "${serviceName}" seharga ${packageData.price}. Bisa minta info lebih lanjut?`;
+                    const whatsappURL = `https://wa.me/${yourWhatsAppNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+                    
+                    contentHTML += `
+                        <div class="package ${tier}">
+                            <h3>${packageData.name}</h3>
+                            <div class="price">${packageData.price}</div>
+                            <ul>
+                                ${packageData.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                            <a href="${whatsappURL}" target="_blank" class="cta-button order-button">
+                                <i class="fab fa-whatsapp"></i> Pesan Paket Ini
+                            </a>
+                        </div>
+                    `;
                 });
+                contentHTML += '</div>';
+                contentContainer.innerHTML = contentHTML;
+            }
+
+            // --- Inisialisasi Tabs ---
+            Object.keys(servicesData).forEach((serviceName, index) => {
+                const button = document.createElement('button');
+                button.className = 'tab-button';
+                button.textContent = serviceName;
+                button.dataset.service = serviceName;
+                if (index === 0) {
+                    button.classList.add('active');
+                }
+                tabsContainer.appendChild(button);
             });
 
-            // Mobile menu toggle
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+            // --- Event Listener untuk Klik Tab ---
+            tabsContainer.addEventListener('click', function(e) {
+                if (e.target.classList.contains('tab-button')) {
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    renderContent(e.target.dataset.service);
+                }
+            });
+
+            // --- Render Konten Awal ---
+            const initialService = Object.keys(servicesData)[0];
+            renderContent(initialService);
+
+            // --- Navigasi Mobile (Hamburger Menu) ---
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }));
+            
+            // --- Efek Scroll pada Header, Nav-link Active, dan Tombol Back-to-Top ---
+            window.addEventListener('scroll', () => {
+                // Header
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // Tombol Back to Top
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('active');
+                } else {
+                    backToTopButton.classList.remove('active');
+                }
+                
+                // Active link
+                let current = '';
+                document.querySelectorAll('section').forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(li => {
+                    li.classList.remove('active');
+                    if (li.getAttribute('href').includes(current)) {
+                        li.classList.add('active');
+                    }
+                });
             });
         });
     </script>
