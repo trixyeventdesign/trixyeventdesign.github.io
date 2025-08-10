@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trixy Event Design - Wujudkan Momen Impian Anda</title>
+    <meta name="description" content="Trixy Event Design menyediakan layanan dekorasi premium untuk lamaran, ulang tahun, aqiqah, grand opening, dan berbagai acara spesial lainnya di Indonesia.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Favicon: Pastikan file 'Untitled design.png' ada di folder yang sama -->
+    <link rel="icon" href="Untitled design.png" type="image/png">
+
+    <style>
+        /* CSS Styles: Semua style ada di sini */
+        :root {
+            --primary-color: #9B2B6E;
+            --secondary-color: #D7B3D5;
+            --accent-gold: #FFD700;
+            --dark-color: #333333;
+            --light-color: #FFFFFF;
+            --bg-light: #F9F4F8;
+            --font-primary: 'Poppins', sans-serif;
+            --font-headings: 'Playfair Display', serif;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--dark-color);
+            line-height: 1.7;
+            background-color: var(--light-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- Reusable Components --- */
+        .section-title {
+            font-family: var(--font-headings);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), #c74b91);
+            color: var(--light-color);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(155, 43, 110, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(155, 43, 110, 0.5);
+        }
+
+        .cta-button i {
+            margin-left: 0.5rem;
+        }
+
+        /* --- Header & Navigation --- */
+        #header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        #header.scrolled {
+            box-shadow: var(--shadow);
+            background-color: var(--light-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 5rem;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3.5rem; /* UPDATED: Jarak antar menu diperbesar dari 2.5rem menjadi 3.5rem */
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--dark-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-color);
+            background-image: url('https://placehold.co/1920x1080/9B2B6E/FFFFFF?text=Trixy+Event+Design');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: var(--font-headings);
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        /* --- Sections General --- */
+        section {
+            padding: 6rem 0;
+        }
+        #about, #how-to-order, #testimonials {
+             padding-top: 6rem;
+             padding-bottom: 6rem;
+        }
+
+        #services, #gallery, #how-to-order {
+            background-color: var(--bg-light);
+        }
+
+        /* --- Services Section --- */
+        .service-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .tab-button {
+            background: var(--light-color);
+            border: 1px solid var(--secondary-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark-color);
+            transition: all 0.3s ease;
+        }
+
+        .tab-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active {
+            background: var(--primary-color);
+            color: var(--light-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(155, 43, 110, 0.3);
+        }
+
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .package {
+            background: var(--light-color);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .package.gold { border-top-color: var(--accent-gold); }
+        .package.platinum { border-top-color: var(--primary-color); }
+
+        .package h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .package .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .package ul {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .package ul li {
+            margin-bottom: 0.8rem;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .package ul li::before {
+            content: '\f00c'; /* Font Awesome check icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .package .order-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        /* --- Gallery Section --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            opacity: 0.8;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+        }
+
+        .client {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .client-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .client-name {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .client-event {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* --- How to Order Section --- */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover .step-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark-color);
+            color: #eee;
+            padding: 6rem 0 2rem 0;
+            text-align: center;
+        }
+
+        footer .section-title {
+            color: var(--light-color);
+        }
+
+        footer .section-subtitle {
+            color: #ccc;
+        }
+
+        footer .cta-button {
+            margin-bottom: 4rem;
+        }
+
+        footer .cta-button i {
+            margin-right: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 2rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .footer-bottom .fa-heart {
+            color: var(--primary-color);
+        }
+
+        /* --- Back to Top Button --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 5rem;
+                flex-direction: column;
+                background-color: var(--light-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                padding: 1.5rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <nav class="container">
+            <a href="#" class="logo">
+                <img src="Untitled design.png" alt="Trixy Event Design Logo">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Layanan</a></li>
+                <li><a href="#gallery" class="nav-link">Galeri</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimoni</a></li>
+                <li><a href="#contact" class="nav-link">Kontak</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content container">
+                <h1 class="hero-title">Mewujudkan Momen Impian Anda.</h1>
+                <p class="hero-subtitle">Kreativitas, Detail, dan Sentuhan Personal untuk Setiap Acara Spesial.</p>
+                <a href="#services" class="cta-button">Lihat Layanan Kami <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="container">
+             <h2 class="section-title">Tentang Trixy Event Design</h2>
+             <p class="section-subtitle">Kami adalah partner kreatif Anda dalam merancang dan mendekorasi setiap momen berharga. Dari konsep hingga eksekusi, Trixy Event Design berdedikasi untuk memberikan hasil yang melebihi ekspektasi dengan detail yang sempurna dan pelayanan yang ramah.</p>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">Layanan Kami</h2>
+                <div class="service-tabs">
+                    <!-- Tabs akan di-generate oleh JavaScript -->
+                </div>
+                <div class="service-content">
+                    <!-- Detail Paket akan ditampilkan di sini -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <div class="container">
+                <h2 class="section-title">Galeri Portofolio</h2>
+                <p class="section-subtitle">Inspirasi visual dari acara-acara yang telah kami tangani.</p>
+                <div class="gallery-grid">
+                    <!-- Ganti 'src' dengan path foto portofolio Anda -->
+                    <div class="gallery-item"><img src="https://placehold.co/600x600/9B2B6E/FFFFFF?text=Lamaran" alt="Dekorasi Lamaran"></div>
+                    <div class="gallery-item"><img src="https://placehold.co/600x600/D7B3D5/333333?text=Ulang+Tahun" alt="Dekorasi Ulang Tahun"></div>
+                    <div class="gallery-item"><img src="https://placehold.co/600x600/9B2B6E/FFFFFF?text=Photo+Booth" alt="Photo Booth"></div>
+                    <div class="gallery-item"><img src="https://placehold.co/600x600/D7B3D5/333333?text=Grand+Opening" alt="Grand Opening"></div>
+                    <div class="gallery-item"><img src="https://placehold.co/600x600/9B2B6E/FFFFFF?text=Table+Decor" alt="Table Decoration"></div>
+                    <div class="gallery-item"><img src="https://placehold.co/600x600/D7B3D5/333333?text=Aqiqah" alt="Dekorasi Aqiqah"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <div class="container">
+                <h2 class="section-title">Apa Kata Klien Kami?</h2>
+                <p class="section-subtitle">Kepuasan Anda adalah prioritas utama kami. Lihat cerita mereka yang telah mempercayakan momen spesialnya kepada Trixy Event Design.</p>
+                <div class="testimonial-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="quote">"Hasilnya jauh di atas ekspektasi! Dekorasi lamaran saya jadi super cantik dan elegan. Timnya juga ramah dan sangat membantu. Recommended banget!"</p>
+                        <div class="client">
+                            <img src="https://placehold.co/100x100/D7B3D5/333333?text=A" alt="Foto Klien" class="client-photo">
+                            <div class="client-info">
+                                <h4 class="client-name">Andini Putri</h4>
+                                <span class="client-event">Dekorasi Lamaran</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="quote">"Untuk grand opening toko, Trixy benar-benar memberikan yang terbaik. Dekorasi gate balonnya megah dan menarik perhatian banyak orang. Terima kasih Trixy!"</p>
+                        <div class="client">
+                            <img src="https://placehold.co/100x100/9B2B6E/FFFFFF?text=R" alt="Foto Klien" class="client-photo">
+                            <div class="client-info">
+                                <h4 class="client-name">Rizky Subagja</h4>
+                                <span class="client-event">Grand Opening</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="quote">"Pesta ulang tahun anak jadi meriah dan tematik banget. Photobooth-nya jadi rebutan semua tamu. Profesional dan hasilnya memuaskan."</p>
+                        <div class="client">
+                            <img src="https://placehold.co/100x100/D7B3D5/333333?text=S" alt="Foto Klien" class="client-photo">
+                            <div class="client-info">
+                                <h4 class="client-name">Sarah Larasati</h4>
+                                <span class="client-event">Dekorasi Ulang Tahun</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Order Section -->
+        <section id="how-to-order">
+            <div class="container">
+                <h2 class="section-title">Cara Pemesanan</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-comments"></i></div>
+                        <h3>1. Konsultasi</h3>
+                        <p>Hubungi kami via WhatsApp untuk mendiskusikan konsep dan kebutuhan acara Anda.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-box-open"></i></div>
+                        <h3>2. Pilih Paket</h3>
+                        <p>Pilih paket yang paling sesuai dengan anggaran dan keinginan Anda dari layanan kami.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-calendar-check"></i></div>
+                        <h3>3. Booking & Eksekusi</h3>
+                        <p>Konfirmasi pesanan Anda, dan biarkan tim kami yang mewujudkan semuanya dengan sempurna.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact & Footer -->
+    <footer id="contact">
+        <div class="container">
+            <h2 class="section-title">Siap Wujudkan Acara Impian Anda?</h2>
+            <p class="section-subtitle">Jangan ragu untuk menghubungi kami. Klik tombol di bawah untuk konsultasi gratis via WhatsApp!</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Trixy%20Event%20Design,%20saya%20tertarik%20untuk%20menggunakan%20jasa%20Anda." class="cta-button" target="_blank">
+                <i class="fab fa-whatsapp"></i> Hubungi Kami Sekarang
+            </a>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Trixy Event Design. Dibuat dengan <i class="fas fa-heart"></i>.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+        // JavaScript: Semua script ada di sini
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Data untuk Semua Layanan & Paket ---
+            // GANTI NOMOR WHATSAPP ANDA DI SINI
+            const yourWhatsAppNumber = '6281234567890'; 
+
+            const servicesData = {
+                "Dekorasi Lamaran": {
+                    basic: { name: "Basic", price: "Rp 1.500.000", features: ["Backdrop standar 2x2m", "Hiasan bunga artificial", "Karpet", "2 Standing Flower", "Lighting sederhana"] },
+                    gold: { name: "Gold", price: "Rp 2.800.000", features: ["Backdrop custom 2.5x2.5m (tema & warna)", "Bunga artificial premium & fresh flower mix", "Welcome sign custom", "Karpet premium", "4 Standing Flower", "Lighting profesional", "Kursi Tiffany untuk pasangan"] },
+                    platinum: { name: "Platinum", price: "Rp 4.500.000", features: ["Desain 3D sebelum eksekusi", "Backdrop full custom 3x3m", "Full fresh flower / Bunga artificial import", "Welcome sign & galeri foto", "Full area flooring", "6+ Standing Flower & dekorasi jalan", "Lighting & special effects"] }
+                },
+                "Dekorasi Ultah": {
+                    basic: { name: "Basic", price: "Rp 1.200.000", features: ["Backdrop banner custom 2x1.5m", "Dekorasi balon (garland)", "Meja kue sederhana", "Props tema standar"] },
+                    gold: { name: "Gold", price: "Rp 2.500.000", features: ["Backdrop custom 3D 2x2m", "Dekorasi balon tematik & helium", "Meja kue & dessert table", "Welcome sign", "Props tema custom"] },
+                    platinum: { name: "Platinum", price: "Rp 5.000.000", features: ["Dekorasi seluruh area venue", "Backdrop 3D interaktif", "Instalasi balon artistik", "Sweet corner & dessert table lengkap", "Souvenir corner & display", "Lighting tematik", "Termasuk planning & koordinasi"] }
+                },
+                "Photo Booth": {
+                    basic: { name: "Basic", price: "Rp 900.000", features: ["Backdrop standar 2x2m", "Properti standar (topi, kacamata)", "Lighting standar", "Durasi 2 jam"] },
+                    gold: { name: "Gold", price: "Rp 1.800.000", features: ["Backdrop custom sesuai tema 2.5x2m", "Properti custom & unik", "Lighting studio", "Cetak foto instan (100 lembar)", "Durasi 3 jam"] },
+                    platinum: { name: "Platinum", price: "Rp 3.000.000", features: ["Backdrop 3D/interaktif", "Properti premium & personal", "Lighting profesional & efek", "Cetak foto instan unlimited", "Operator & asisten", "Frame foto custom", "Durasi 4 jam"] }
+                },
+                "Grand Opening": {
+                    basic: { name: "Basic", price: "Rp 2.000.000", features: ["Dekorasi pintu masuk (balon gate)", "1 Standing Flower", "Pita & gunting peresmian"] },
+                    gold: { name: "Gold", price: "Rp 4.000.000", features: ["Balon gate artistik", "Backdrop panggung kecil", "Welcome sign & area registrasi", "2 Standing Flower & karangan bunga", "Sound system standar"] },
+                    platinum: { name: "Platinum", price: "Rp 6.000.000+", features: ["Desain dekorasi seluruh fasad & interior", "Panggung custom & backdrop LED", "Photo booth tematik", "Karpet merah & gate mewah", "Lighting & sound system profesional", "Koordinasi acara"] }
+                },
+                "Aqiqah & Khitan": {
+                    basic: { name: "Basic", price: "Rp 1.300.000", features: ["Backdrop sederhana 2x2m", "Dekorasi ayunan/kursi anak", "Balon & hiasan nama"] },
+                    gold: { name: "Gold", price: "Rp 2.600.000", features: ["Backdrop custom & tematik", "Set dekorasi meja makan & dessert", "Welcome sign custom", "Properti islami/tradisional"] },
+                    platinum: { name: "Platinum", price: "Rp 4.200.000", features: ["Dekorasi tematik di beberapa spot", "Photo booth mini", "Hiasan bunga segar", "Gift corner / souvenir display", "Instalasi balon"] }
+                },
+                "Table Decoration": {
+                    basic: { name: "Basic", price: "Rp 900.000", features: ["Dekorasi untuk 1 meja utama (6-8 orang)", "Centerpiece bunga artificial", "Table runner & placemat standar"] },
+                    gold: { name: "Gold", price: "Rp 1.700.000", features: ["Dekorasi 1 meja utama & 2 meja tamu", "Centerpiece bunga mix (artificial & fresh)", "Peralatan makan & napkin custom"] },
+                    platinum: { name: "Platinum", price: "Rp 3.500.000", features: ["Dekorasi seluruh meja tamu (hingga 5 meja)", "Full fresh flower centerpiece", "Desain tema menyeluruh (kartu menu, nama, dll)"] }
+                },
+                "Dekorasi Gate": {
+                    basic: { name: "Basic", price: "Rp 1.000.000", features: ["Gate balon sederhana", "Ukuran standar", "Pilihan 2 warna"] },
+                    gold: { name: "Gold", price: "Rp 2.200.000", features: ["Gate balon artistik", "Bisa mix dengan kain & bunga artificial", "Ukuran custom", "Lighting sederhana"] },
+                    platinum: { name: "Platinum", price: "Rp 3.800.000", features: ["Gate custom (kayu/besi)", "Dekorasi full bunga segar/artificial premium", "Lighting profesional", "Properti tambahan (misal: inisial)"] }
+                },
+                "Event Planner": {
+                    basic: { name: "Basic", price: "Rp 2.500.000", features: ["Konsultasi konsep", "Rekomendasi vendor", "Pembuatan rundown acara", "Koordinasi hari H (1 orang)"] },
+                    gold: { name: "Gold", price: "Rp 4.500.000", features: ["Semua di Basic", "Manajemen budget", "Booking & negosiasi vendor", "Koordinasi hari H (tim 2-3 orang)"] },
+                    platinum: { name: "Platinum", price: "Rp 6.000.000+", features: ["Semua di Gold", "Desain konsep & tema dari awal", "Manajemen tamu & RSVP", "Penanganan semua aspek dari A-Z", "Tim lengkap di hari H"] }
+                },
+                "Dekorasi Perpisahan": {
+                    basic: { name: "Basic", price: "Rp 1.800.000", features: ["Backdrop panggung standar", "Hiasan balon sederhana", "Meja untuk plakat/kenang-kenangan"] },
+                    gold: { name: "Gold", price: "Rp 3.200.000", features: ["Backdrop panggung custom", "Photo booth sederhana", "Dekorasi area pintu masuk", "Lighting panggung"] },
+                    platinum: { name: "Platinum", price: "Rp 5.500.000", features: ["Dekorasi tematik seluruh venue", "Panggung & backdrop megah", "Photo booth interaktif", "Memory lane / galeri foto", "Lighting & sound system"] }
+                },
+                "Dekorasi Photoshoot": {
+                    basic: { name: "Basic", price: "Rp 1.000.000", features: ["1 set background simpel", "Properti dasar", "Lighting standar", "Untuk indoor"] },
+                    gold: { name: "Gold", price: "Rp 2.500.000", features: ["2 set background tematik", "Properti custom", "Lighting studio", "Bisa indoor/outdoor"] },
+                    platinum: { name: "Platinum", price: "Rp 4.000.000", features: ["Set dekorasi kompleks & artistik", "Properti premium & unik", "Asisten dekorator di lokasi", "Bisa membangun set dari nol"] }
+                }
+            };
+
+            // --- Elemen DOM ---
+            const tabsContainer = document.querySelector('.service-tabs');
+            const contentContainer = document.querySelector('.service-content');
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const header = document.getElementById('header');
+            const backToTopButton = document.querySelector('.back-to-top');
+
+            // --- Fungsi untuk Render Konten Paket ---
+            function renderContent(serviceName) {
+                const serviceData = servicesData[serviceName];
+                if (!serviceData) return;
+
+                let contentHTML = '<div class="pricing-table">';
+                ['basic', 'gold', 'platinum'].forEach(tier => {
+                    const packageData = serviceData[tier];
+                    const whatsappMessage = `Halo Trixy Event Design, saya tertarik dengan paket ${packageData.name} untuk layanan "${serviceName}" seharga ${packageData.price}. Bisa minta info lebih lanjut?`;
+                    const whatsappURL = `https://wa.me/${yourWhatsAppNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+                    
+                    contentHTML += `
+                        <div class="package ${tier}">
+                            <h3>${packageData.name}</h3>
+                            <div class="price">${packageData.price}</div>
+                            <ul>
+                                ${packageData.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                            <a href="${whatsappURL}" target="_blank" class="cta-button order-button">
+                                <i class="fab fa-whatsapp"></i> Pesan Paket Ini
+                            </a>
+                        </div>
+                    `;
+                });
+                contentHTML += '</div>';
+                contentContainer.innerHTML = contentHTML;
+            }
+
+            // --- Inisialisasi Tabs ---
+            Object.keys(servicesData).forEach((serviceName, index) => {
+                const button = document.createElement('button');
+                button.className = 'tab-button';
+                button.textContent = serviceName;
+                button.dataset.service = serviceName;
+                if (index === 0) {
+                    button.classList.add('active');
+                }
+                tabsContainer.appendChild(button);
+            });
+
+            // --- Event Listener untuk Klik Tab ---
+            tabsContainer.addEventListener('click', function(e) {
+                if (e.target.classList.contains('tab-button')) {
+                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    renderContent(e.target.dataset.service);
+                }
+            });
+
+            // --- Render Konten Awal ---
+            const initialService = Object.keys(servicesData)[0];
+            renderContent(initialService);
+
+            // --- Navigasi Mobile (Hamburger Menu) ---
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }));
+            
+            // --- Efek Scroll pada Header, Nav-link Active, dan Tombol Back-to-Top ---
+            window.addEventListener('scroll', () => {
+                // Header
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // Tombol Back to Top
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('active');
+                } else {
+                    backToTopButton.classList.remove('active');
+                }
+                
+                // Active link
+                let current = '';
+                document.querySelectorAll('section').forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(li => {
+                    li.classList.remove('active');
+                    if (li.getAttribute('href').includes(current)) {
+                        li.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
